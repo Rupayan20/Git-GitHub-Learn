@@ -4,159 +4,45 @@ Welcome to the Git and GitHub Notes repository! This collection of notes is desi
 
 ## Table of Contents
 
-- [Introduction](#introduction)
-- [Getting Started](#getting-started)
-- [Basic Git Commands](#basic-git-commands)
-  - [Setting Up Git](#setting-up-git)
-  - [Basic Commands](#basic-commands)
-  - [Branching](#branching)
-  - [Merging](#merging)
-- [Intermediate Git](#intermediate-git)
-  - [Rebasing](#rebasing)
-  - [Stashing](#stashing)
-  - [Tags](#tags)
-  - [Remote Repositories](#remote-repositories)
-- [Advanced Git](#advanced-git)
-  - [Cherry Picking](#cherry-picking)
-  - [Interactive Rebase](#interactive-rebase)
-  - [Submodules](#submodules)
-  - [Hooks](#hooks)
-- [GitHub Workflow](#github-workflow)
-  - [Forking and Pull Requests](#forking-and-pull-requests)
-  - [Issues and Projects](#issues-and-projects)
-  - [GitHub Actions](#github-actions)
-  - [Managing Releases](#managing-releases)
-- [Best Practices](#best-practices)
-- [Git and GitHub Interview Questions](#git-and-github-interview-questions)
-- [Resources](#resources)
-- [Contributing](#contributing)
-- [License](#license)
+- [Git and Github]
+- [Terminology]
+- [Git behind the scenes]
+- [Branched in git]
+- [diff stash and Tags]
+- [Rebase and reflog] 
+- [getting started with Github]
+- [Resources]
+- [Contributing]
 
 ## Introduction
 
 This repository contains detailed notes on Git and GitHub, aiming to cover a wide range of topics from basic to advanced concepts. These notes are useful for anyone looking to improve their understanding of version control and collaboration using Git and GitHub.
 
-## Getting Started
+## Terminology
 
-If you are new to Git, start with the [Basic Git Commands](#basic-git-commands) section. For those with some experience, the [Intermediate Git](#intermediate-git) and [Advanced Git](#advanced-git) sections offer more in-depth knowledge. The [GitHub Workflow](#github-workflow) section provides insights into using GitHub effectively for collaboration.
+Git and people who use it talk in a different terminology. For example they don’t call it a folder, they call it a repository. They don’t call it alternative timeline, they call it branch. Although, I agree that alternative timeline is a better name for it.
 
-## Basic Git Commands
+## Git behind the scenes
 
-### Setting Up Git
+Git is a version control system that allows us to track changes to our files and folders. It is a powerful tool that can help us manage our code more effectively. In this section, we will explore the basics of how git works internally.
 
-- Installing Git
-- Configuring user name and email
-- Initializing a repository
+## Branched in git
 
-### Basic Commands
+Branches are a way to work on different versions of a project at the same time. They allow us to create a separate line of development that can be worked on independently of the main branch. This can be useful when we want to make changes to a project without affecting the main branch or when we want to work on a new feature or bug fix.
 
-- `git init`
-- `git clone`
-- `git add`
-- `git commit`
-- `git status`
-- `git log`
+## diff stash and Tags
 
-### Branching
+## Rebase and reflog
 
-- Creating and switching branches
-- Understanding branch workflows
+## getting started with Github
 
-### Merging
-
-- Merging branches
-- Handling merge conflicts
-
-## Intermediate Git
-
-### Rebasing
-
-- What is rebasing?
-- How to rebase a branch
-- Benefits and use cases
-
-### Stashing
-
-- Using `git stash` to save changes
-- Applying and dropping stashes
-
-### Tags
-
-- Creating and managing tags
-- Annotated vs. lightweight tags
-
-### Remote Repositories
-
-- Adding and fetching from remote repositories
-- Pushing and pulling changes
-- Using `git remote`
-
-## Advanced Git
-
-### Cherry Picking
-
-- What is cherry-picking?
-- How to cherry-pick commits
-
-### Interactive Rebase
-
-- Rewriting commit history
-- Squashing and editing commits
-
-### Submodules
-
-- Adding and updating submodules
-- Best practices for using submodules
-
-### Hooks
-
-- Setting up Git hooks
-- Common hook scripts
-
-## GitHub Workflow
-
-### Forking and Pull Requests
-
-- Forking a repository
-- Creating and reviewing pull requests
-
-### Issues and Projects
-
-- Creating and managing issues
-- Using projects for task management
-
-### GitHub Actions
-
-- Setting up workflows with GitHub Actions
-- Common CI/CD pipelines
-
-### Managing Releases
-
-- Creating and managing releases
-- Using tags for versioning
-
-## Best Practices
-
-- Commit message conventions
-- Branching strategies
-- Code review guidelines
-
-## Git and GitHub Interview Questions
-
-- Common interview questions
-- Detailed answers and explanations
-- Tips for Git and GitHub interviews
+Github is a web-based Git repository hosting service. It is a popular platform for developers to collaborate on projects and to share code. Github provides a user-friendly interface for managing and tracking changes to your code, as well as a platform for hosting and sharing your projects with others.
 
 ## Resources
 
-- Recommended books
 - Online tutorials and courses
 - Git and GitHub documentation
 
 ## Contributing
 
 We welcome contributions from the community! If you have notes, examples, or improvements to share, please submit a pull request or open an issue.
-
-## License
-
-This repository is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
