@@ -1,0 +1,205 @@
+Complete Git and GitHub Guide:
+
+
+-> Git: Git is a version control system that lets us manage and keep track of our source code history.
+   GitHub: GitHub is a cloud-based hosting service that lets us manage Git repositories.
+[Note: Git & GitHub are different.]
+       🢇       🢆
+(Software)     (Service)
+
+
+-> Version Control System: track files for changes
+
+
+-> We will go in this journey something like this:
+
+ 🡆 Get the basics 
+ 🡆 Use it daily 
+ 🡆 Face the problems 
+ 🡆 Solve them
+ 🡆 Learn more
+
+
+-> Install Git: https://git-scm.com/downloads
+   Account on GitHub: https://github.com/
+
+
+-> Git Commands:
+
+ 🡆 Check the Git version: git --version
+ 
+ 🡆 To check the repository: git status
+ 
+ 🡆 config settings: git config --global user.email "your-email@gmail.com"
+                     git config --global user.name "Your Name"
+                     git config --list
+                     git config --global core.editor "code --wait" (we can change the default code editor in our system to vscode)
+ 
+ 🡆 To create a repository: git status
+
+                            git init 
+
+                            git add . (for staging all the files)   
+                        or, git add file1.txt file2.js (for staging the selected files) 
+
+                            git commit -m "first commit"
+                            
+                            git log (this command will show us the history of our repository. It will show us all the commit were made to the repository)
+
+                            git log --oneline  (we can use "--oneline" flag to show only the commit message)
+
+
+-> Complete git flow:
+
+      Write 🢂 Add 🢂 Commit
+
+            git init 
+               🢃  
+         Working Directory  
+               🢃
+             git add
+               🢃
+          Staging Area 
+               🢃
+            git commit 
+               🢃
+              Repo 
+               🢃
+            git push
+               🢃
+             GitHub
+
+
+-> Atomic Commits:
+
+ 🡆 keep commits centric to one feature, one component or on fix. Focused on one thing.
+ 
+ 🡆 Present or Past commit message
+       i) depends (Present tense, Imperative)
+       ii) give order to code base
+       ii) don't care
+    
+
+-> 
+   🡆gitignore: gitignore is a file that tells git which files and folders to ignore. It is a way to prevent git from tracking certain files or folders.
+    Example: node_modules
+             .env
+             .vscode
+
+   🡆 gitkeep:gitkeep file tells github to do the opposite of its default behaviour, which is to ignore empty folders.  
+
+
+-> Commit behind the scenes:
+  
+   Hash               Hash           Hash
+Parent->null  <----  Parent  <----  Parent
+   Info               Info           Info
+
+   🡆 Git behind the scenes: Git is a version control system that allows us to track changes to our files and folders. It is a powerful tool that can help us manage our code more effectively. In this section, we will explore the basics of how git works internally.
+   
+   🡆 Git Snapshots: A git snapshot is a point in time in the history of our code. It represents a specific code, including all the files and folders that were present at that time. Each snapshot by a unique hash code, which is a string of characters that represents the content.
+                    A snapshot is not an image, it's just a representation of the code at a specific point. 
+
+   🡆 Three Musketeers of git:
+
+                    1. Commit Object: Each commit in the project is stored in .git folder in form of a commit object contains the following information:
+                                      i) Tree Object
+                                      ii) Parent Object
+                                      iii) Author
+                                      iv) Committer
+                                      v) Commit Message
+
+                    2. Tree Object: Tree Object is a container for all the files and folders in the project. It contains the following information:
+                                      i) File Mode
+                                      ii) File Name
+                                      iii) File Hash
+                                      iv) Parent Tree Object
+
+                    3. Blob Object: Blob Object is present in the tree object and contains the actual file content. This is the place where the file content is stored.
+                                      commit
+                                       tree  ---->  tree ----> blob
+                                                    blob       console.log("Git and GitHub")
+                                                               function git(){
+                                                                  let providerName= 'GitHub'
+                                                               }
+
+
+-> Creating a new branch:
+
+   🡆 Branches in git: Branches are a way to work on different versions of a project at the same time. They allow us to create a separate line of development that can be worked on independently of the main branch. This can be useful when we want to make changes to a project without affecting the main branch or when we want to work on a new feature or bug fix.
+
+   🡆 HEAD in git: The HEAD is a pointer to the current branch that we are working on. It points to the latest commit in the current branch. When we create a new branch, it is automatically set as the HEAD of that branch.
+
+   🡆 Creating a new branch: To create a new branch, we can use the following command:
+          i) git branch
+          ii) git branch new-branch (to create a new branch named "new-branch")
+          iii) git switch new-branch (to switch from "master" to "new-branch")
+          iv) git log (to displays committed snapshots)
+          v) git switch -c new-branch (to create a branch and switch from "master" to "new-branch")
+          vi) git checkout new-branch (to switch from "master" to "new-branch")
+
+   🡆 Merging branches: When we are done working on a branch, we can merge it back into the main branch. This is done using the following command:  
+          i) git checkout (to switch to "master")
+          ii) git merge new-branch (to merge the "new-branch" branch into the "master" branch)
+         
+      => Fast-forward merge: This one is easy as branch that you are trying to merge is usually ahead and there are no conflicts.
+      => Not fast-forward merge: In this type of merge, the master branch also worked and have some commits that are not in the bug-fix branch. This is a not fast-forward merge.
+
+   🡆 Managing conflicts: There is no magic button to resolve conflicts. We have to manually resolve the conflicts. Decide, what to keep and what to discard. VSCode has a built-in merge tool that can help we resolve the conflicts.
+
+      <<<<<<<<<<< HEAD
+
+      -----------
+      -----------             --------> Branch that we are on
+      -----------
+
+      ===========
+
+      -----------
+                             --------> conflict that came from another branch
+      ----------- 
+
+      >>>>>>>>>>> new-branch
+
+   🡆 Rename a branch: git branch -m <old-branch-name> <new-branch-name>
+
+   🡆 Delete a branch: git branch -d <branch-name>
+
+   🡆 Checkout a branch: git checkout <branch-name>
+
+   🡆 List all branches: git branch
+
+
+-> diff stash and Tags:
+
+  🡆 Git diff: The git diff is an informative command that shows the differences between two commits. It is used to compare the changes made in one commit with the changes made in another commit.
+   => How to read the diff:
+         i) a -> file A and b -> file B
+         ii) ---- indicates the file A
+         iii) +++ indicates the file B
+         iv) @@ indicates the line number
+   => Comparing Working Directory and Staging Area: git diff
+   => Comparing Staging Area with Repository: git diff --staged
+   => Comparing between branches: git diff <branch-name-one> <branch-name-two>
+                                  git diff branch-name-one..branch-name-two
+   => Comparing Specific Commits: git diff <commit-hash-one> <commit-hash-two>
+
+  🡆 Git Stash: Stash is a way to save our changes in a temporary location. It is useful when we want to make changes to a file but don’t want to commit them yet.
+   => git stash: This command saves our changes in a temporary location.
+   => Naming the stash: git stash save "work in progress on X feature"
+   => View the stash list: git stash list
+   => Apply the stash: git stash apply
+   => Apply the specific stash: git stash apply stash@{0}
+   => Applying and dropping the stash: git stash pop
+   => Drop the stash: git stash drop
+   => Applying stash to a specific branch: git stash apply stash@{0} <branch-name>
+   => Clearing the stash: git stash clear
+
+  🡆 Git Tags: Tags are a way to mark a specific point in our repository. They are useful when we want to remember a specific version of our code or when we want to refer to a specific commit.
+   => Creating a tag:git tag <tag-name>
+   => Create an annotated tag: git tag -a <tag-name> -m "Release 1.0"
+   => List all tags: git tag
+   => Tagging a specific commit: git tag <tag-name> <commit-hash>
+   => Push tags to remote repository: git push origin <tag-name>
+   => Delete a tag: git tag -d <tag-name>
+   => Delete tag on remote repository: git push origin :<tag-name>
