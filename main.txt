@@ -203,3 +203,79 @@ Parent->null  <----  Parent  <----  Parent
    => Push tags to remote repository: git push origin <tag-name>
    => Delete a tag: git tag -d <tag-name>
    => Delete tag on remote repository: git push origin :<tag-name>
+
+
+-> Rebase and reflog:
+
+  🡆 Rebase in git: Git rebase is a powerful Git feature used to change the base of a branch. It effectively allows us to move a branch to a new starting point, usually a different commit, by “replaying” the commits from the original base onto the new base. This can be useful for keeping a cleaner, linear project history.
+   => Ensure we are on the branch we want to rebase (always try to ignore master branch): git checkout feature-branch
+                                                                                          git rebase main                    
+   => Resolve any conflicts: git add <resolved-files>
+                             git rebase --continue
+ 
+  🡆 Git reflog: Git reflog is a command that shows us the history of our commits. It allows us to see the changes that ou have made to our repository over time. This can be useful for debugging and understanding the history of our project.
+   => View the reflog: git reflog
+   => Find specific commit: git reflog <commit-hash>
+   => Recover lost commits or changes: git reflog <commit-hash>
+                                       git reset --hard <commit-hash>
+
+      or, you can use HEAD@{n} to reset to the nth commit before the one you want to reset to: git reflog <commit-hash>
+                                                                                               git reset --hard HEAD@{1}
+
+
+-> getting started with Github:   
+
+  🡆 Github: Github is a web-based Git repository hosting service. It is a popular platform for developers to collaborate on projects and to share code. Github provides a user-friendly interface for managing and tracking changes to our code, as well as a platform for hosting and sharing our projects with others.
+
+  🡆 Some other alternative of Github are: Gitlab
+                                           Bitbucket
+                                           Azure Repos
+                                           Gitea
+
+  🡆 Configure our config file: 
+   => If we havn’t done it already, we need to configure our git config file. We can do this by running the following command:
+            git config --global user.email "your-email@example.com"
+            git config --global user.name "Your Name"
+   => This will set our email and name as our global settings. We can change these settings later by running the following command:
+            git config --global user.email "your-email@example.com"
+            git config --global user.name "Your Name"
+   => This will show us all the settings that we have changed: git config --list
+
+  🡆 Setup ssh key and add to github:
+   => Generate a new SSH key: ssh-keygen -t ed25519 -C "your-email@example.com"
+   => For better understanding, read the documentation: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+
+  🡆 Adding code to remote repository:
+   => Create a new Repo on our system first, add some code and commit it: git init
+                                                                           git add <files>
+                                                                           git commit -m "commit message"
+  🡆 Check remote url setting:
+   => We can check the remote url setting by running the following command: git remote -v
+
+  🡆 Add remote repository: 
+   => Here <remote-url> is the url of the remote repository that we want to add and origin is the name of the remote repository. This origin is used to refer to the remote repository in the future: git remote add origin <remote-url>
+
+  🡆 Push code to remote repository:
+   => Here remote-name is the name of the remote repository that we want to push to and branch-name is the name of the branch that we want to push: git push origin main
+
+  🡆 Setup an upstream remote: 
+   => To set up an upstream remote, we can use the following command: git remote add upstream <remote-url>/git remote add -u <remote-url>
+   => This will set up an upstream remote and push our code to the remote repository: git push -u origin main
+
+  🡆 Get code from remote repository:
+   => There are two ways to get code from a remote repository: i) fetch the code
+                                                               ii) pull the code
+
+     Work   |   Stage  |   local repo   |  Remote Repo   |
+            |          |                |                |
+            |          |                |                |
+            |          |                |<---git fetch<--|
+            |          |                |                |
+            |          |                | 
+   <------------------git pull<---------------------------
+
+   git pull = git fetch + git merge 
+
+   => Fetch code: git fetch <remote-name>
+   => Pull code: git pull <remote-name> <branch-name>
+            
